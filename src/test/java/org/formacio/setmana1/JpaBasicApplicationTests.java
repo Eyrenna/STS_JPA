@@ -67,12 +67,6 @@ public class JpaBasicApplicationTests {
 
 	// -- Aneu implementant cada metode de LlibreOpsBasic que s'executa en cada test
 	
-	/* yo: a src/test/resources/insert.sql tenin les operacions 
-	 * de inicialització de la BBDD 
-	 * delete from T_LOCALITATS;
-       insert into T_LOCALITATS (LOC_ID, LOC_NOM, LOC_HABS) values (1,'Selva',1000);
-     */
-	
 	@Test
 	public void test_carrega_existent() throws LlibreNoExisteixException {
 		Assert.assertNotNull(operacions.carrega(ISBN));
@@ -98,9 +92,8 @@ public class JpaBasicApplicationTests {
 		Assert.assertEquals(Recomanacio.PRESCINDIBLE, nou.getRecomanacio());
 	}
 	
-	/* jo: he afegit el throw exception per reutilitzar el mètode carrega */ 
 	@Test
-	public void test_elimina() throws LlibreNoExisteixException {
+	public void test_elimina() {
 		Assert.assertNotNull(em.find(Llibre.class, ISBN));
 		Assert.assertTrue(operacions.elimina(ISBN));
 		Assert.assertNull(em.find(Llibre.class, ISBN));
@@ -115,16 +108,14 @@ public class JpaBasicApplicationTests {
 		Assert.assertEquals(2000, modificat.getPagines().intValue());
 	}
 	
-	/* jo: he afegit el throw exception per reutilitzar el mètode carrega */ 
 	@Test
-	public void test_existeix() throws LlibreNoExisteixException {
+	public void test_existeix() {
 		Assert.assertTrue(operacions.existeix(ISBN));
 		Assert.assertFalse(operacions.existeix("No existeix"));
 	}
 	
-	/* jo: he afegit el throw exception per reutilitzar el mètode carrega */ 
 	@Test
-	public void test_recomanacio() throws LlibreNoExisteixException{
+	public void test_recomanacio() {
 		Assert.assertNull(operacions.recomenacioPer("No existeix"));
 		Assert.assertEquals(Recomanacio.OBRA_MESTRE, operacions.recomenacioPer(ISBN));
 	}
