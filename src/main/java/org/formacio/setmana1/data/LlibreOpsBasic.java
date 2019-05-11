@@ -23,7 +23,12 @@ public class LlibreOpsBasic {
 	 * Retorna el llibre amb l'ISBN indicat o, si no existeix, llança un LlibreNoExisteixException
 	 */
 	public Llibre carrega (String isbn) throws LlibreNoExisteixException {
-		Llibre llibre = em.find(Llibre.class, isbn);
+		Llibre llibre = null;
+		if (null != em.find(Llibre.class, isbn)) {
+			llibre = em.find(Llibre.class, isbn);
+		}else {
+			throw new LlibreNoExisteixException();
+		}
 		return llibre;
 	}
 	
