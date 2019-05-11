@@ -1,13 +1,17 @@
 package org.formacio.setmana1.data;
 
 
+import javax.persistence.Column;
+
 import org.formacio.setmana1.domini.Llibre;
 import org.formacio.setmana1.domini.Recomanacio;
+import org.springframework.stereotype.Component;
 
 /**
  * Modifica aquesta classe per tal que sigui un component Spring que realitza les 
  * operacions de persistencia tal com indiquen les firmes dels metodes
  */
+@Component
 public class LlibreOpsBasic {
 	
 	/**
