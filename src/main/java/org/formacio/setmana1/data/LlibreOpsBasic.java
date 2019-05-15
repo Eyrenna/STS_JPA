@@ -1,21 +1,19 @@
 package org.formacio.setmana1.data;
 
 
-import javax.persistence.Column;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import javax.transaction.Transactional;
 
 import org.formacio.setmana1.domini.Llibre;
 import org.formacio.setmana1.domini.Recomanacio;
-import org.springframework.data.repository.query.Param;
-import org.springframework.stereotype.Component;
+import org.springframework.stereotype.Repository;
 
 /**
  * Modifica aquesta classe per tal que sigui un component Spring que realitza les 
  * operacions de persistencia tal com indiquen les firmes dels metodes
  */
-@Component
+@Repository
 public class LlibreOpsBasic {
 	
 	@PersistenceContext
